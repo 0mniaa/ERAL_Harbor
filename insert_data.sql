@@ -17,22 +17,24 @@ INSERT INTO Client (name, email, telephone) VALUES
 ('Laila Magdy', 'laila.magdy@yahoo.com', '+20 1066778899');
 
 
-INSERT INTO Vessel (name, type, weight, capacity, registration_number, height, length, status, client_id) VALUES
-('Nile Voyager', 'Cargo Ship', 15000.56, 40000, 'REG001', 25.45, 200.75, 'Active', 1),
-('Mediterranean Star', 'Tanker', 25000.78, 50000, 'REG002', 30.50, 250.35, 'Inactive', 2),
-('Pacific Horizon', 'Cargo Ship', 18000.34, 45000, 'REG003', 28.12, 220.50, 'Active', 3),
-('Red Sea Explorer', 'Passenger', 12000.22, 35000, 'REG004', 24.33, 190.25, 'Active', 4),
-('Atlantic Vision', 'Tanker', 22000.49, 48000, 'REG005', 26.75, 210.18, 'Inactive', 5),
-('Indian Breeze', 'Cargo Ship', 19000.67, 47000, 'REG006', 29.23, 230.45, 'Active', 6),
-('Cairo Glory', 'Tanker', 17000.80, 42000, 'REG007', 26.60, 220.98, 'Active', 7),
-('Aswan Spirit', 'Cargo Ship', 16000.91, 44000, 'REG008', 27.52, 215.77, 'Inactive', 8),
-('Tokyo Dream', 'Passenger', 13000.14, 37000, 'REG009', 22.88, 185.62, 'Active', 9),
-('Gulf Majesty', 'Cargo Ship', 20000.13, 50000, 'REG010', 31.23, 260.85, 'Inactive', 10),
-('Suez Queen', 'Passenger', 14000.56, 38000, 'REG011', 23.60, 200.50, 'Active', 1),
-('Caspian Breeze', 'Cargo Ship', 21000.30, 47000, 'REG012', 27.88, 210.75, 'Inactive', 2),
-('Caribbean Spirit', 'Tanker', 22000.77, 46000, 'REG013', 28.20, 215.30, 'Active', 3),
-('Arctic Horizon', 'Cargo Ship', 23000.41, 48000, 'REG014', 29.05, 225.15, 'Active', 4),
-('Saharan Dawn', 'Tanker', 25000.92, 50000, 'REG015', 30.65, 240.10, 'Inactive', 5);
+INSERT INTO Vessel (name, type, weight, capacity, registration_number, height, length, status, client_id) 
+VALUES
+('Nile Voyager', 'Container Ship', 15000.56, 40000, 'REG001', 25.45, 200.75, 'Active', 1),
+('Mediterranean Star', 'Reefer Ship', 25000.78, 50000, 'REG002', 30.50, 250.35, 'Inactive', 2),
+('Pacific Horizon', 'Bulk Carrier', 18000.34, 45000, 'REG003', 28.12, 220.50, 'Active', 3),
+('Red Sea Explorer', 'Ro-Ro Ship', 12000.22, 35000, 'REG004', 24.33, 190.25, 'Active', 4),
+('Atlantic Vision', 'Heavy Lift Ship', 22000.49, 48000, 'REG005', 26.75, 210.18, 'Inactive', 5),
+('Indian Breeze', 'Container Ship', 19000.67, 47000, 'REG006', 29.23, 230.45, 'Active', 6),
+('Cairo Glory', 'Livestock Carrier', 17000.80, 42000, 'REG007', 26.60, 220.98, 'Active', 7),
+('Aswan Spirit', 'Reefer Ship', 16000.91, 44000, 'REG008', 27.52, 215.77, 'Inactive', 8),
+('Tokyo Dream', 'General Cargo Ship', 13000.14, 37000, 'REG009', 22.88, 185.62, 'Active', 9),
+('Gulf Majesty', 'Multi-purpose Ship', 20000.13, 50000, 'REG010', 31.23, 260.85, 'Inactive', 10),
+('Suez Queen', 'Timber Ship', 14000.56, 38000, 'REG011', 23.60, 200.50, 'Active', 1),
+('Caspian Breeze', 'Heavy Lift Ship', 21000.30, 47000, 'REG012', 27.88, 210.75, 'Inactive', 2),
+('Caribbean Spirit', 'Livestock Carrier', 22000.77, 46000, 'REG013', 28.20, 215.30, 'Active', 3),
+('Arctic Horizon', 'Container Ship', 23000.41, 48000, 'REG014', 29.05, 225.15, 'Active', 4),
+('Saharan Dawn', 'Bulk Carrier', 25000.92, 50000, 'REG015', 30.65, 240.10, 'Inactive', 5);
+
 
 INSERT INTO Shipment (departure_date, arrival_date, weight, cost, destination, status, vessel_id, bay_id) VALUES
 ('2024-01-15', '2024-01-20', 10000.0, 25000, 'Alexandria', 'Delivered', 1, 1),
@@ -50,8 +52,6 @@ INSERT INTO Shipment (departure_date, arrival_date, weight, cost, destination, s
 ('2024-07-15', '2024-07-20', 13000.5, 26000.0, 'New York', 'Delivered', 3, 3),
 ('2024-08-01', '2024-08-06', 18000.0, 36000, 'Port Said', 'Pending', 4, 4),
 ('2024-08-10', '2024-08-15', 16000, 32000.5, 'Alexandria', 'In Transit', 5, 1);
-
-
 
 INSERT INTO Docking_Bay (location, capacity, available) VALUES
 ('Port of Alexandria', 15, 'Yes'),
