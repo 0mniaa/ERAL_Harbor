@@ -5,12 +5,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 public class connection{
-    private static final String URL = "jdbc:mysql://localhost:3306/Eral_Harbor";
-    private static final String USER = "root";
-    private static final String PASS = "12345";
+    private static final String url = "jdbc:mysql://localhost:3306/Eral_Harbor";
+    private static final String user = "root";
+    private static final String pass = "12345";
     public static Connection connect() {
         try {
-            return DriverManager.getConnection(URL, USER, PASS);
+            return DriverManager.getConnection(url, user, pass);
         } catch (SQLException e) {
             return null;
         }
