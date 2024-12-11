@@ -49,20 +49,20 @@ VALUES
 INSERT INTO Cargo (type, weight, quantity, shipment_id) 
 VALUES
 ('Electronics', 5000.0, 100, 1),
-('Frozen Food', 8000.0, 50, 2),
-('Clothing', 12000.0, 200, 3),
-('Heavy Machinery', 15000.0, 20, 4),
-('Furniture', 7000.0, 150, 5),
-('Food Grains', 18000.0, 100, 6),
-('Pharmaceuticals', 3000.0, 300, 7),
-('Perishable Goods', 4000.0, 50, 8),
+('Heavy Machinery', 8000.0, 50, 2),
+('Frozen Food', 12000.0, 200, 3),
+('Oil and Gas Equipment', 15000.0, 20, 4),
+('Trucks', 7000.0, 150, 5),
+('Heavy Machinery', 18000.0, 100, 6),
+('Livestock', 3000.0, 300, 7),
+('Frozen Food', 4000.0, 50, 8),
 ('Automobiles', 10000.0, 30, 9),
 ('Toys', 5000.0, 400, 10),
 ('Timber', 11000.0, 120, 11),
 ('Heavy Machinery', 17000.0, 15, 12),
-('Livestock', 12000.0, 50, 13),
-('Livestock', 10000.0, 40, 14),
-('Heavy Machinery', 15000.0, 10, 15);
+('Automobiles', 12000.0, 50, 13),
+('Oil and Gas Equipment', 10000.0, 40, 14),
+('Livestock', 15000.0, 10, 15);
 INSERT INTO Payment (Amount, Payment_date, Payment_method, Shipment_id) VALUES
 (25000.0, '2024-01-16', 'Credit Card', 1),
 (30000.5, '2024-02-02', 'Cash', 2),
@@ -136,6 +136,3 @@ SET s.status = CASE
                   ELSE 'Unknown Status'
                END
 WHERE c.result IN ('Passed', 'Failed', 'Pending');
-
-
-
