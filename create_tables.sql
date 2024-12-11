@@ -1,5 +1,5 @@
-CREATE DATABASE eral_harbor;
-USE eral_harbor;
+CREATE DATABASE earl_harbor;
+USE earl_harbor;
 CREATE TABLE user (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
