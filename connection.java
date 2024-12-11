@@ -4,37 +4,41 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
-public class connection {
+public class connection{
     private static final String URL = "jdbc:mysql://localhost:3306/Eral_Harbor";
     private static final String USER = "root";
     private static final String PASS = "12345";
-    public static Connection connect() throws SQLException {
+    public static Connection connect() {
         try {
             return DriverManager.getConnection(URL, USER, PASS);
         } catch (SQLException e) {
-            throw e;
+            return null;
         }
     }
     public static void login() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("enter username: ");
+        System.out.print("Enter username: ");
         String name = sc.nextLine();
-        System.out.print("enter password: ");
+        System.out.print("Enter password: ");
         String pass = sc.nextLine();
         sc.close();
         String query = "SELECT * FROM user WHERE username = ? AND password = ?";
-        try (Connection conn = connect();
-             PreparedStatement statment = conn.prepareStatement(query)) {
-                statment.setString(1, name);
-                statment.setString(2, pass);
-            ResultSet rs = statment.executeQuery();
+        Connection conn = connect();
+        if (conn == null) {
+            System.err.println("Failed to connect to the database.");
+            return;
+        }
+        try (PreparedStatement statement = conn.prepareStatement(query)) {
+            statement.setString(1, name);
+            statement.setString(2, pass);
+            ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                System.out.println("login successful! welcome, " + name);
+                System.out.println("Login successful! Welcome, " + name);
             } else {
-                System.out.println("invalid username or password.");
+                System.out.println("Invalid username or password.");
             }
         } catch (SQLException e) {
-            System.err.println("error: " + e.getMessage());
+            System.err.println("Error during login: " + e.getMessage());
         }
     }
     public static void main(String[] args) {
