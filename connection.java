@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 public class connection{
-    private static final String url = "jdbc:mysql://localhost:3306/Eral_Harbor";
+    private static final String url = "jdbc:mysql://localhost:3306/Earl_Harbor";
     private static final String user = "root";
     private static final String pass = "12345";
     public static Connection connect() {
