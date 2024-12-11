@@ -4,11 +4,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
-public class main {
+public class connection {
     private static final String URL = "jdbc:mysql://localhost:3306/Eral_Harbor";
     private static final String USER = "root";
     private static final String PASS = "12345";
-    
     public static Connection connect() throws SQLException {
         try {
             return DriverManager.getConnection(URL, USER, PASS);
