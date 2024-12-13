@@ -2,25 +2,25 @@ CREATE DATABASE earl_harbor;
 USE earl_harbor;
 CREATE TABLE user (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(25) NOT NULL
+    username VARCHAR(10) NOT NULL UNIQUE,
+    password VARCHAR(15) NOT NULL
 );
 CREATE TABLE Client (
     client_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
+    name VARCHAR(20) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL CHECK (email LIKE '%@%'),
     telephone VARCHAR(15) NOT NULL
 );
 CREATE TABLE Vessel(
 	vessel_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
+    name VARCHAR(20) NOT NULL,
     type VARCHAR(60) NOT NULL,
-    weight DOUBLE NOT NULL CHECK (weight > 0 ),
+    weight DOUBLE NOT NULL CHECK (weight > 0) ,
     capacity INT NOT NULL CHECK (capacity > 0),
     registration_number VARCHAR(40) UNIQUE NOT NULL,
     height DOUBLE NOT NULL,
     length DOUBLE NOT NULL,
-    status VARCHAR(10) NOT NULL DEFAULT 'Inactive',
+    status VARCHAR(10) NOT NULL ,
     client_id INT NOT NULL,
     FOREIGN KEY (client_id) REFERENCES Client(client_id)
 );
@@ -36,8 +36,8 @@ CREATE TABLE Shipment(
     arrival_date DATE NOT NULL,
     weight DOUBLE NOT NULL,
     cost INT NOT NULL,
-    destination VARCHAR(100) NOT NULL,
-    status VARCHAR(255) default 'Passed',
+    destination VARCHAR(50) NOT NULL,
+    status VARCHAR(30) default 'Passed',
     vessel_id INT NOT NULL,
     bay_id INT NOT NULL,
     FOREIGN KEY (vessel_id) REFERENCES Vessel(vessel_id),
@@ -47,8 +47,8 @@ ALTER TABLE Shipment AUTO_INCREMENT = 1;
 CREATE TABLE Contract (
     contract_id INT AUTO_INCREMENT PRIMARY KEY,
     start_date DATE NOT NULL,
-    end_date DATE,
-    details VARCHAR(255) NOT NULL CHECK (details <> ''),
+    end_date DATE NOT NULL,
+    details VARCHAR(255) NOT NULL ,
     client_id INT NOT NULL,
     FOREIGN KEY (client_id) REFERENCES Client(client_id)
 );
@@ -62,7 +62,7 @@ CREATE TABLE Inspector (
 CREATE TABLE Customs (
     inspection_id INT AUTO_INCREMENT PRIMARY KEY,
     inspection_date DATE NOT NULL,
-    result VARCHAR(100) NOT NULL CHECK (result <> ''),
+    result VARCHAR(30) NOT NULL ,
     inspector_id INT NOT NULL,
     shipment_id INT NOT NULL,
     FOREIGN KEY (inspector_id) REFERENCES Inspector(inspector_id),
@@ -85,20 +85,19 @@ CREATE TABLE Notification (
 );
 CREATE TABLE personnel (
     personnel_ID INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    role VARCHAR(50),
-    email VARCHAR(100) UNIQUE NOT NULL CHECK (email LIKE '%@%'),
+    name VARCHAR(20) NOT NULL,
+    role VARCHAR(20),
+    email VARCHAR(40) UNIQUE NOT NULL CHECK (email LIKE '%@%'),
     phone VARCHAR(15) NOT NULL
 );
 CREATE TABLE Cargo (
     cargo_id INT AUTO_INCREMENT PRIMARY KEY,
     type VARCHAR(50) NOT NULL,
-    weight FLOAT NOT NULL,
-    quantity INT NOT NULL,
+    weight FLOAT NOT NULL CHECK (weight > 0),
+    quantity INT NOT NULL CHECK (quantity > 0),
     shipment_id INT NOT NULL,
     FOREIGN KEY (shipment_id) REFERENCES Shipment(shipment_id)
 );
-
 CREATE TABLE Payment (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,
     amount DECIMAL(15,2) NOT NULL,
@@ -107,7 +106,6 @@ CREATE TABLE Payment (
     shipment_id INT NOT NULL,
     FOREIGN KEY (shipment_id) REFERENCES Shipment(shipment_id)
 );
-
 CREATE TABLE Logs (
     log_id INT AUTO_INCREMENT PRIMARY KEY,
     log_date DATE NOT NULL,
