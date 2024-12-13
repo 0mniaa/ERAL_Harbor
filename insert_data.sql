@@ -136,6 +136,3 @@ SET s.status = CASE
                   ELSE 'Unknown Status'
                END
 WHERE c.result IN ('Passed', 'Failed', 'Pending');
-
-
-

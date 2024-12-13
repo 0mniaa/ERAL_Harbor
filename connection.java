@@ -5,9 +5,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 public class connection{
+<<<<<<< HEAD
     private static String url = "jdbc:mysql://localhost:3306/Earl_Harbor";
     private static String user = "root";
     private static String pass = "12345";
+=======
+    private static final String url = "jdbc:mysql://localhost:3306/Earl_Harbor";
+    private static final String user = "root";
+    private static final String pass = "12345";
+>>>>>>> b71398af782043a5808f5813842a7e7d0403f7ac
     public static Connection connect() {
         try {
             return DriverManager.getConnection(url, user, pass);
