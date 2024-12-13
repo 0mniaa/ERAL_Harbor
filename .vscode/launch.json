@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "connection",
+            "request": "launch",
+            "mainClass": "connection",
+            "projectName": "Eral Harbor_7aac7bfb",
+            "classPaths": [
+                "lib/mysql-connector-java-9.1.0.jar",
+                "D:/Eral Harbor/lib/mysql-connector-j-9.1.0.jar",
+                "D:/Eral Harbor"   // Add the path for the class files
+            ],
+            "args": ["-cp", "D:/Eral Harbor", "connection"]
+
+        }
+    ]
+}
